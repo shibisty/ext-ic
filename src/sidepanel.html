@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Image Converter</title>
+
+</head>
+<body class="is-sidepanel">
+  <div class="app">
+    <header class="app-header">
+      <div class="app-header__mark"></div>
+      <div class="app-header__title" data-i18n="appTitle">Image Converter</div>
+      <button class="icon-btn" id="btn-open-tab" data-i18n-title="openInTab" title="Open in a tab">⤢</button>
+      <button class="icon-btn" id="btn-settings" data-i18n-title="settings" title="Settings">⚙</button>
+    </header>
+
+    <div class="app-body">
+      <div class="tabbar" id="tabbar">
+        <button class="tab-btn is-active" data-tab="convert" data-i18n="tabConvert">Conversion</button>
+        <button class="tab-btn" data-tab="presets" data-i18n="tabPresets">Presets</button>
+        <button class="tab-btn" data-tab="log" data-i18n="tabLog">Log</button>
+      </div>
+
+      <div class="tab-panel" id="panel-convert">
+        <button class="btn btn-primary btn-add-files" id="btn-add-files" type="button">
+          <span aria-hidden="true">📁</span> <span data-i18n="addFiles">Add files</span>
+        </button>
+        <div class="add-files-hint" id="paste-hint">Drag & drop anywhere, or paste (Ctrl+V)</div>
+        <input type="file" id="file-input" multiple accept="image/*,.dds" class="visually-hidden" />
+
+        <div class="quick-bar">
+          <div class="field">
+            <label data-i18n="outputFormat">Output format</label>
+            <select id="format-select"></select>
+          </div>
+          <div class="field">
+            <label data-i18n="profileLabel">Profile</label>
+            <select id="profile-select"></select>
+          </div>
+        </div>
+
+        <div class="queue-toolbar">
+          <button class="btn btn-primary" id="btn-convert-all" data-i18n="convertAll">Convert all</button>
+          <button class="icon-btn icon-btn--danger" id="btn-clear-all" data-i18n-title="clearAll" title="Clear all">🗑</button>
+        </div>
+
+        <div class="queue" id="queue-list">
+          <div class="queue-empty" id="queue-empty" data-i18n="emptyQueue">No images yet.</div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-presets" style="display:none">
+        <button class="btn btn-primary" id="btn-new-preset" style="width:100%" data-i18n="newPreset">+ New preset</button>
+        <div class="presets-list" id="presets-list">
+          <div class="queue-empty" id="presets-empty" data-i18n="noPresets">No presets yet.</div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-log" style="display:none">
+        <div class="log-toolbar">
+          <div class="log-toolbar__title" data-i18n="recentConversions">Recently converted</div>
+          <button class="btn btn-ghost" id="btn-clear-log" data-i18n="clearLog">Clear log</button>
+        </div>
+        <div class="presets-list" id="log-list">
+          <div class="queue-empty" id="log-empty" data-i18n="noLogEntries">Nothing converted yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <span class="dot loading" id="engine-dot"></span>
+      <span id="engine-status" data-i18n="engineLoading">Loading engine…</span>
+    </footer>
+
+    <div class="settings-page" id="settings-page">
+      <div class="settings-page__header">
+        <button class="icon-btn" id="btn-settings-back" title="Back">←</button>
+        <div class="settings-page__title" data-i18n="settings">Settings</div>
+      </div>
+      <div class="settings-page__body" id="settings-page-body"></div>
+    </div>
+  </div>
+
+  <div class="drag-overlay" id="drag-overlay">
+    <div class="drag-overlay__box">
+      <div class="drag-overlay__icon">📥</div>
+      <div data-i18n="dropHint">Drop to add images</div>
+    </div>
+  </div>
+
+  <script type="module" src="./ui/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "ext-ic",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Image Converter (ImageMagick WASM) — browser extension for Chrome and Firefox",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --mode chrome --watch",
+    "dev:firefox": "vite build --mode firefox --watch",
+    "build": "npm run build:chrome && npm run build:firefox",
+    "build:chrome": "vite build --mode chrome",
+    "build:firefox": "vite build --mode firefox",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npm run build:chrome && node tests/e2e/convert.e2e.mjs",
+    "zip": "npm run build && node scripts/zip.mjs",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.38",
+    "@types/node": "^24.19.2",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^26.1.0",
+    "playwright": "^1.56.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.7",
+    "vitest": "^5.0.3"
+  }
+}

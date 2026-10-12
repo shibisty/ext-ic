@@ -1,0 +1,6 @@
+{
+  "extName": { "message": "Конвертер изображений (ImageMagick)" },
+  "extDescription": { "message": "Локальная конвертация изображений между форматами на базе WebAssembly ImageMagick." },
+  "contextMenuConvert": { "message": "Конвертировать в Image Converter" },
+  "contextMenuOpenPanel": { "message": "Открыть панель Image Converter" }
+}

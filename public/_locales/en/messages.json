@@ -1,0 +1,6 @@
+{
+  "extName": { "message": "Image Converter (ImageMagick)" },
+  "extDescription": { "message": "Convert images between formats locally using WebAssembly ImageMagick." },
+  "contextMenuConvert": { "message": "Convert with Image Converter" },
+  "contextMenuOpenPanel": { "message": "Open Image Converter panel" }
+}
